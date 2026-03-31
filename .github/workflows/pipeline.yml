@@ -1,4 +1,4 @@
-name: First CI Pipeline
+name: Starburst CI Step
 
 on:
   push:
@@ -12,5 +12,12 @@ jobs:
       - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Print SQL File
-        run: cat query.sql
+      - name: Install Trino CLI
+        run: |
+          wget https://repo1.maven.org/maven2/io/trino/trino-cli/418/trino-cli-418-executable.jar
+          mv trino-cli-418-executable.jar trino
+          chmod +x trino
+
+      - name: Run Test Query (Local)
+        run: |
+          ./trino --execute "SELECT 1"
