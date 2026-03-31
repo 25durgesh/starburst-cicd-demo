@@ -4,8 +4,8 @@
   run: |
     ./trino \
     --server https://aws-us-east-1-free.galaxy.starburst.io:443 \
-    --user ${{ secrets.durgeshcse25@gmail.com }} \
-    --Durgesh@2026 \
+    --user ${{ secrets.SB_USER }} \
+    --password \
     --catalog tpch \
     --schema sf1 \
     --execute "SELECT 1"
