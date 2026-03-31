@@ -18,12 +18,12 @@ jobs:
           mv trino-cli-418-executable.jar trino
           chmod +x trino
 
-      - name: Run Query on Starburst Galaxy
-        run: |
-          ./trino \
-          --server https://yourdurgesh-free-cluster.trino.galaxy.starburst.io:443 \
-          --user "${{ secrets.SB_USER }}" \
-          --catalog tpch \
-          --schema tiny \
-          --access-token "${{ secrets.STARBURST_TOKEN }}" \
-          --execute "SELECT 1"
+     - name: Run Query on Starburst Galaxy
+  run: |
+    ./trino \
+    --server https://yourdurgesh-free-cluster.trino.galaxy.starburst.io:443 \
+    --user "${{ secrets.SB_USER }}" \
+    --catalog tpch \
+    --schema tiny \
+    --access-token "${{ secrets.SB_PASSWORD }}" \
+    --execute "SELECT 1"
