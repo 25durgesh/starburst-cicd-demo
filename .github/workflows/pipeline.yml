@@ -5,7 +5,7 @@
     ./trino \
     --server https://aws-us-east-1-free.galaxy.starburst.io:443 \
     --user ${{ secrets.durgeshcse25@gmail.com }} \
-    --Git@2026 \
+    --Durgesh@2026 \
     --catalog tpch \
     --schema sf1 \
     --execute "SELECT 1"
