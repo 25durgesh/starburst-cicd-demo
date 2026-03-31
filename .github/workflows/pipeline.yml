@@ -1,23 +1,11 @@
-name: Starburst CI Step
-
-on:
-  push:
-    branches: [main]
-
-jobs:
-  test:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Install Trino CLI
-        run: |
-          wget https://repo1.maven.org/maven2/io/trino/trino-cli/418/trino-cli-418-executable.jar
-          mv trino-cli-418-executable.jar trino
-          chmod +x trino
-
-      - name: Run Test Query (Local)
-        run: |
-          ./trino --execute "SELECT 1"
+- name: Run Query on Starburst Galaxy
+  env:
+    TRINO_PASSWORD: ${{ secrets.SB_PASSWORD }}
+  run: |
+    ./trino \
+    --server https://aws-us-east-1-free.galaxy.starburst.io:443 \
+    --user ${{ secrets.durgeshcse25@gmail.com }} \
+    --Git@2026 \
+    --catalog tpch \
+    --schema sf1 \
+    --execute "SELECT 1"
