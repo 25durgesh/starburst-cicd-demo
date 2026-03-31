@@ -24,7 +24,7 @@ jobs:
         run: |
           ./trino \
           --server https://aws-us-east-1-free.galaxy.starburst.io:443 \
-          --user ${{ secrets.SB_USER }} \
+          --user "${{ secrets.SB_USER }}" \
           --password \
           --catalog tpch \
           --schema sf1 \
