@@ -23,9 +23,10 @@ jobs:
           TRINO_PASSWORD: ${{ secrets.SB_PASSWORD }}
         run: |
           ./trino \
-          --server https://aws-us-east-1-free.galaxy.starburst.io:443 \
+          --server https://aws-us-east-1-free.galaxy.starburst.io \
           --user "${{ secrets.SB_USER }}" \
           --password \
           --catalog tpch \
           --schema sf1 \
-          --execute "SELECT 1"
+          --execute "SELECT 1" \
+          --insecure
